@@ -1,50 +1,139 @@
-# Welcome to your Expo app 👋
+# Mobile Development Setup - Expo Router Project
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app) using the latest Expo Router template.
 
-## Get started
+## Project Scaffolding Process
 
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+### 1. Project Initialization
+The project was initialized using the Expo Router template:
 ```bash
-npm run reset-project
+npx create-expo-app@latest prodev-mobile-app-0x00
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. Initial Project Structure
+The template created a comprehensive starter app with the following structure:
+- **app/**: File-based routing directory using Expo Router
+  - **(tabs)/**: Tab-based navigation structure
+    - `index.tsx`: Home screen with welcome message
+    - `explore.tsx`: Explore screen
+  - `_layout.tsx`: Root layout configuration
+- **components/**: Reusable UI components
+- **constants/**: App constants and theme definitions
+- **hooks/**: Custom React hooks
+- **assets/**: Images, fonts, and other static assets
+- **scripts/**: Utility scripts including reset-project.js
 
-## Learn more
+### 3. Home Screen Modification
+The default welcome text in `app/(tabs)/index.tsx` was successfully changed from "Welcome!" to "** First App Created**" as requested.
 
-To learn more about developing your project with Expo, look at the following resources:
+### 4. Development Server
+To start the development server:
+```bash
+npx expo start
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+This provides options to:
+- Open in development build
+- Run on Android emulator
+- Run on iOS simulator
+- Use Expo Go app for testing
 
-## Join the community
+### 5. Project Reset Process
 
-Join our community of developers creating universal apps.
+#### What the `npm run reset-project` command does:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+The reset script performs the following operations:
+
+1. **User Prompt**: Asks whether to move existing files to `/app-example` or delete them
+2. **Directory Management**: 
+   - Moves or deletes the following directories: `app`, `components`, `hooks`, `constants`, `scripts`
+   - Creates a new `/app-example` directory (if user chooses to preserve files)
+3. **Fresh Start**: Creates a new minimal `/app` directory with:
+   - `index.tsx`: Simple screen with basic React Native components
+   - `_layout.tsx`: Basic Expo Router stack layout
+
+#### Observations from Running Reset:
+
+**Before Reset:**
+- Complex tab-based navigation structure
+- Multiple custom components (HelloWave, ParallaxScrollView, ThemedText, etc.)
+- Comprehensive styling and theming system
+- Multiple screens and navigation tabs
+
+**After Reset:**
+- Minimal app structure with just two files
+- Simple stack-based navigation
+- Basic React Native components (View, Text)
+- Clean slate for custom development
+
+#### File Structure Changes:
+
+**Original Structure (moved to app-example):**
+```
+app/
+├── (tabs)/
+│   ├── _layout.tsx
+│   ├── index.tsx (with "** First App Created**" text)
+│   └── explore.tsx
+├── _layout.tsx
+└── +not-found.tsx
+components/
+├── Collapsible.tsx
+├── ExternalLink.tsx
+├── HapticTab.tsx
+├── HelloWave.tsx
+├── ParallaxScrollView.tsx
+├── ThemedText.tsx
+├── ThemedView.tsx
+└── ui/
+constants/
+├── Colors.ts
+hooks/
+├── useColorScheme.ts
+├── useColorScheme.web.ts
+└── useThemeColor.ts
+scripts/
+└── reset-project.js
+```
+
+**New Structure (after reset):**
+```
+app/
+├── index.tsx (minimal screen)
+└── _layout.tsx (basic stack layout)
+app-example/
+├── app/ (original complex structure)
+├── components/ (all original components)
+├── constants/ (original constants)
+├── hooks/ (original hooks)
+└── scripts/ (including reset-project.js)
+```
+
+## Development Workflow
+
+1. **Start Development**: Run `npx expo start` to begin development
+2. **Edit Files**: Modify files in the `app/` directory to see changes
+3. **Test on Devices**: Use Expo Go app or simulators to test your app
+4. **Reference Original**: Check `app-example/` directory for reference to the original template structure
+
+## Key Features of Expo Router
+
+- **File-based Routing**: Create routes by adding files to the `app/` directory
+- **Type Safety**: Full TypeScript support
+- **Universal Apps**: Run on iOS, Android, and Web
+- **Hot Reloading**: Instant updates during development
+- **Built-in Navigation**: Automatic navigation handling
+
+## Next Steps
+
+1. Start the development server: `npx expo start`
+2. Edit `app/index.tsx` to customize your main screen
+3. Add new screens by creating files in the `app/` directory
+4. Reference the `app-example/` directory for component patterns and styling examples
+5. Remove the `app-example/` directory when no longer needed
+
+## Learn More
+
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals and advanced topics
+- [Expo Router documentation](https://docs.expo.dev/router/introduction/): File-based routing guide
+- [React Native documentation](https://reactnative.dev/): Core React Native concepts
